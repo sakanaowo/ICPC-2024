@@ -1,0 +1,27 @@
+Cho số nguyên N và dãy số P[1], P[2], …, P[N] là một hoán vị của 1, 2, …, N.
+
+Với mỗi i = 1, 2, …, N, gọi Mi là phần dư của i khi chia cho Pi, tức Mi = i%Pi.
+
+Nhiệm vụ của bạn là hãy tính giá trị lớn nhất có thể của tổng M1 + M2 + … + MN.
+
+Input:
+
+Một số nguyên dương N duy nhất (1 ≤ N ≤ 109).
+
+Output: 
+
+In ra giá trị tổng lớn nhất của M1 + M2 + … + MN.
+
+Nguyễn Thịnh
+#include <bits/stdc++.h>
+
+using namespace std;
+
+long long ngan(long long n) {
+	return n*(n-1)/2;
+}
+
+int main() {
+	long long n; cin >> n;
+	cout << ngan(n) << endl;
+}
