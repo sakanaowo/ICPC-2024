@@ -1,0 +1,44 @@
+#Bài toán n quân hậu 
+Hãy đếm số cách xếp N quân hậu lên bàn cờ N x N sao cho không có 2 quân hậu nào xung đột với nhau?
+
+Input: 
+
+Một số nguyên N duy nhất (4 <= N <= 14).
+
+Output: 
+
+In ra số cách xếp quân hậu.
+from math import *
+from itertools import *
+from collections import *
+from functools import *
+import sys
+from typing import *
+
+
+def result(n):
+    M, N, P = [0] * 100, [0] * 100, [0] * 100
+    res = [0] * 100
+
+    def Try(i):
+        if i == n + 1:
+            res[0] += 1
+            return
+        for j in range(1, n + 1):
+            if M[j] == 0 and N[j + i] == 0 and P[i - j + n] == 0:
+                M[j] = N[j + i] = P[i - j + n] = 1
+                Try(i + 1)
+                M[j] = N[j + i] = P[i - j + n] = 0
+
+    Try(1)
+    return res[0]
+
+
+def main():
+    print(result(int(input())))
+
+
+if __name__ == '__main__':
+    # for _ in range(int(input())):
+    # while True:
+    main()
